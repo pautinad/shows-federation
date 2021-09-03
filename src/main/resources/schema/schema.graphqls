@@ -1,0 +1,14 @@
+type Query {
+    shows(titleFilter: String): [Show]
+}
+
+type Show @key(fields: "id") {
+    id: ID
+    title: String
+    releaseYear: Int
+    student: Student
+}
+
+type Student @key(fields: "id") @extends {
+    id: ID @external
+}
